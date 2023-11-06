@@ -19,7 +19,7 @@ final class TableViewModel {
         apiProvider.getBootcamps()
         apiProvider.$bootcamps
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] data  in
+            .sink(receiveValue: { [weak self] data in
                 self?.bootcampsModel = data })
             .store(in: &suscriptor)
     }
