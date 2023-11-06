@@ -36,8 +36,8 @@ final class TableViewController: UITableViewController {
     func updateData() {
         viewModel.$bootcampsModel
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: {data in
-                self.bootcampsTableView.reloadData()})
+            .sink(receiveValue: { [weak self] data in
+                self?.bootcampsTableView.reloadData()})
             .store(in: &suscriptor)
     }
     
